@@ -17,6 +17,7 @@
     "watch-ly": "node lyWatcher",
     "watch": "npm run clean & npm run watch-js & npm run build-sass & npm run watch-sass & npm run watch-html & npm run watch-ly",
     "serve": "npm run watch & http-server dist",
+    "start": "npm run serve",
     "deploy": "npm run build && gh-pages -d dist -o upstream",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -46,27 +47,26 @@
     "Opera >= 44",
     "iOS >= 10.3",
     "ChromeAndroid >= 71",
-    "FirefoxAndroid >= 64",
-    "not ie"
+    "FirefoxAndroid >= 64"
   ],
   "dependencies": {
-    "feather-icons": "^4.5.0",
+    "feather-icons": "^4.24.1",
     "hyperapp": "^1.2.9",
     "tone": "^0.11.11",
     "webworkify": "^1.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.5.5",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "^7.3.1",
     "babelify": "^10.0.0",
-    "browserify": "^16.2.3",
+    "browserify": "^16.5.0",
     "cpx": "^1.5.0",
     "debounce": "^1.1.0",
-    "gh-pages": "^1.2.0",
+    "gh-pages": "^2.1.1",
     "http-server": "^0.11.1",
     "node-sass": "^4.11.0",
     "svgo": "^1.1.1",
-    "watchify": "^3.11.0"
+    "watchify": "^3.11.1"
   }
 }
