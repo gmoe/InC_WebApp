@@ -1,25 +1,13 @@
 {
-  "name": "inc_webapp",
-  "version": "0.0.1",
+  "private": true,
+  "name": "in-c",
+  "version": "0.1.0",
   "description": "LUTE's web-based performance tool for Terry Riley's \"In C\"",
-  "main": "js/main.jsx",
+  "main": "src/main.js",
   "scripts": {
-    "clean": "rm -rf dist",
-    "make-dist": "mkdir -p dist && cp index.html dist/ && cp terry_signature.svg dist/",
-    "build-js": "browserify --extension=jsx -e js/main.jsx -o dist/bundle.js -t [ babelify ]",
-    "build-sass": "node-sass --output-style='compressed' styles/main.scss dist/styles.css",
-    "opt-svgs": "svgo --disable=inlineStyles -f dist/assets/svgs",
-    "build-ly": "sh build-ly.sh",
-    "build": "npm run clean & npm run make-dist && npm run build-js && npm run build-sass && npm run build-ly",
-    "watch-js": "watchify -v --debug --extension=jsx js/main.jsx -o dist/bundle.js -t [ babelify ]",
-    "watch-sass": "node-sass --watch --source-map-embed 'styles/main.scss' './dist/styles.css'",
-    "watch-html": "cpx '*.{html,svg}' dist --verbose --clean --watch",
-    "watch-ly": "node lyWatcher",
-    "watch": "npm run clean & npm run watch-js & npm run build-sass & npm run watch-sass & npm run watch-html & npm run watch-ly",
-    "serve": "npm run watch & http-server dist",
-    "start": "npm run serve",
-    "deploy": "npm run build && gh-pages -d dist -o upstream",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --config webpack.config.js",
+    "build": "webpack --config webpack.config.js",
+    "deploy": "npm run build && gh-pages -d dist -o upstream"
   },
   "repository": {
     "type": "git",
@@ -38,41 +26,38 @@
   "bugs": {
     "url": "https://github.com/loyola-university-tech-ensemble/in-c/issues"
   },
-  "homepage": "https://github.com/loyola-university-tech-ensemble/in-c#readme",
-  "browserslist": [
-    "Firefox >= 54",
-    "Chrome >= 58",
-    "Edge >= 16",
-    "Safari >= 10.1",
-    "Opera >= 44",
-    "iOS >= 10.3",
-    "ChromeAndroid >= 71",
-    "FirefoxAndroid >= 64"
-  ],
+  "homepage": "https://lute.luc.edu/",
   "dependencies": {
-    "feather-icons": "^4.24.1",
-    "hyperapp": "^1.2.9",
-    "tone": "^0.11.11",
-    "webworkify": "^1.5.0"
-  },
-  "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/preset-env": "^7.3.1",
-    "babel-eslint": "^10.0.3",
-    "babelify": "^10.0.0",
-    "browserify": "^16.5.0",
-    "cpx": "^1.5.0",
-    "debounce": "^1.1.0",
-    "eslint": "^6.2.2",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+    "@vue/babel-preset-app": "^3.11.0",
+    "@vue/babel-preset-jsx": "^1.1.0",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "core-js": "^3.2.1",
+    "css-loader": "^3.2.0",
+    "doiuse": "^4.2.0",
     "gh-pages": "^2.1.1",
-    "http-server": "^0.11.1",
-    "node-sass": "^4.11.0",
-    "svgo": "^1.1.1",
-    "watchify": "^3.11.1"
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-scss": "^2.0.0",
+    "sass": "^1.18.0",
+    "sass-loader": "^7.3.1",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10",
+    "vuex": "^3.0.1",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "worker-loader": "^2.0.0"
+  },
+  "devDependencies": {
+    "@vue/eslint-config-airbnb": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "webpack-dev-server": "^3.8.0"
   }
 }

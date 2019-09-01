@@ -1,6 +1,6 @@
-import util from './util.js';
+import { midiToFrequency } from './util.js';
 
-class EnvelopeAD {
+export class EnvelopeAD {
   constructor(ctx, param, attack = 0.1, release = 0.1, curve = 1, startValue = 1, endValue = 0) {
     this.ctx = ctx;
     this.param = param;
@@ -24,7 +24,7 @@ class EnvelopeAD {
   }
 }
 
-class VCA {
+export class VCA {
   constructor(ctx, param, attack = 0.0, decay = 0.1, sustain = 0.25, release = 0.5) {
     this.ctx = ctx;
     this.param = param;
@@ -48,7 +48,7 @@ class VCA {
   }
 }
 
-class Synth {
+export class Synth {
   constructor(ctx) {
     this.ctx = ctx;
 
@@ -76,14 +76,14 @@ class Synth {
   }
 }
 
-class Ostinato {
+export class Ostinato {
   constructor(ctx) {
     this.ctx = ctx;
 
     this.osc = ctx.createOscillator();
     this.osc.type = 'sine';
     //const midi = (Math.floor(Math.random() * 3) * 12) + 60;
-    this.osc.frequency.value = util.midiToFrequency(72);
+    this.osc.frequency.value = midiToFrequency(72);
 
     this.gain = ctx.createGain();
     this.gain.gain.setValueAtTime(0.0, this.ctx.currentTime);
@@ -98,10 +98,3 @@ class Ostinato {
     this.vca.triggerAt(time, 0.1, 0.85);
   }
 }
-
-module.exports = {
-  EnvelopeAD,
-  VCA,
-  Synth,
-  Ostinato,
-};

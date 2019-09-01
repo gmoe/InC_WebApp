@@ -1,5 +1,5 @@
 IN_DIR='./phrases/ly'
-OUT_DIR='./dist/assets/svgs/'
+OUT_DIR='./phrases/svgs/'
 
 # Check for presence of Lilypond
 if [ ! -x "$(command -v lilypond)" ]; then
