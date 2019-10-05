@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import phrasesJSON from './phrases/phrases';
+import phrasesJSON from './phrases';
 import ClockWorker from './clock.worker';
 import { Synth, Ostinato } from './synth.js';
 import * as util from './util';

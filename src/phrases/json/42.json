@@ -1,0 +1,33 @@
+{
+  "duration": "4m",
+  "notes": [
+    {
+      "duration": "1m",
+      "midi": 72,
+      "pitch": "C5",
+      "time": 0,
+      "velocity": 0.9133858267716536
+    },
+    {
+      "duration": "1m",
+      "midi": 71,
+      "pitch": "B4",
+      "time": "1m",
+      "velocity": 0.889763779527559
+    },
+    {
+      "duration": "1m",
+      "midi": 69,
+      "pitch": "A4",
+      "time": "2m",
+      "velocity": 0.889763779527559
+    },
+    {
+      "duration": "1m",
+      "midi": 72,
+      "pitch": "C5",
+      "time": "3m",
+      "velocity": 0.889763779527559
+    }
+  ]
+}

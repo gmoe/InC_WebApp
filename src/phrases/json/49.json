@@ -1,0 +1,47 @@
+{
+  "duration": "4n + 8n",
+  "notes": [
+    {
+      "duration": "16n",
+      "midi": 65,
+      "pitch": "F4",
+      "time": 0,
+      "velocity": 0.889763779527559
+    },
+    {
+      "duration": "16n",
+      "midi": 67,
+      "pitch": "G4",
+      "time": "16n",
+      "velocity": 0.889763779527559
+    },
+    {
+      "duration": "16n",
+      "midi": 70,
+      "pitch": "A#4",
+      "time": "8n",
+      "velocity": 0.889763779527559
+    },
+    {
+      "duration": "16n",
+      "midi": 67,
+      "pitch": "G4",
+      "time": "8n + 16n",
+      "velocity": 0.889763779527559
+    },
+    {
+      "duration": "16n",
+      "midi": 70,
+      "pitch": "A#4",
+      "time": "4n",
+      "velocity": 0.889763779527559
+    },
+    {
+      "duration": "16n",
+      "midi": 67,
+      "pitch": "G4",
+      "time": "4n + 16n",
+      "velocity": 0.889763779527559
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "duration": "2n",
+  "notes": [
+    {
+      "duration": "32n",
+      "midi": 60,
+      "pitch": "C4",
+      "time": 0,
+      "velocity": 0.88
+    },
+    {
+      "duration": "8n",
+      "midi": 64,
+      "pitch": "E4",
+      "time": 0.025,
+      "velocity": 1
+    },
+    {
+      "duration": "8n",
+      "midi": 65,
+      "pitch": "F4",
+      "time": "8n",
+      "velocity": 1
+    },
+    {
+      "duration": "4n",
+      "midi": 64,
+      "pitch": "E4",
+      "time": "4n",
+      "velocity": 1
+    }
+  ]
+}

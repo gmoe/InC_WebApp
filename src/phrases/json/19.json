@@ -1,0 +1,12 @@
+{
+  "duration": "4n * 3",
+  "notes": [
+    {
+      "duration": "4n + 8n",
+      "midi": 79,
+      "pitch": "G5",
+      "time": "4n + 8n",
+      "velocity": 0.937007874015748
+    }
+  ]
+}

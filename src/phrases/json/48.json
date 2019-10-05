@@ -1,0 +1,26 @@
+{
+  "duration": "3m + 2n + 4n",
+  "notes": [
+    {
+      "duration": "1m + 2n",
+      "midi": 67,
+      "pitch": "G4",
+      "time": 0,
+      "velocity": 0.889763779527559
+    },
+    {
+      "duration": "1m",
+      "midi": 67,
+      "pitch": "G4",
+      "time": "1m + 2n",
+      "velocity": 0.889763779527559
+    },
+    {
+      "duration": "1m + 4n",
+      "midi": 65,
+      "pitch": "F4",
+      "time": "2m + 2n",
+      "velocity": 0.889763779527559
+    }
+  ]
+}

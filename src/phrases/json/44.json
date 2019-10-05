@@ -1,0 +1,33 @@
+{
+  "duration": "2n + 4n",
+  "notes": [
+    {
+      "duration": "8n",
+      "midi": 77,
+      "pitch": "F5",
+      "time": 0,
+      "velocity": 0.9133858267716536
+    },
+    {
+      "duration": "4n",
+      "midi": 76,
+      "pitch": "E5",
+      "time": "8n",
+      "velocity": 0.889763779527559
+    },
+    {
+      "duration": "8n",
+      "midi": 76,
+      "pitch": "E5",
+      "time": "4n + 8n",
+      "velocity": 0.889763779527559
+    },
+    {
+      "duration": "4n",
+      "midi": 72,
+      "pitch": "C5",
+      "time": "2n",
+      "velocity": 0.889763779527559
+    }
+  ]
+}
