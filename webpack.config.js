@@ -16,7 +16,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
     },
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json', '.svg'],
   },
   module: {
     rules: [
@@ -59,6 +59,26 @@ module.exports = {
           }
         ]
       },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[name].[ext]',
+              // publicPath: '/',
+              outputPath: 'assets',
+              emitFile: true,
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: process.env.NODE_ENV === 'development',
+            },
+          },
+        ],
+      },
     ]
   },
   plugins: [
@@ -70,9 +90,13 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin(),
+    new webpack.ProgressPlugin(),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     hot: true,
-  }
+  },
+  optimization: {
+    splitChunks: false,
+  },
 };

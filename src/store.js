@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import phrasesJSON from './phrases/phrases';
 import ClockWorker from './clock.worker';
 import { Synth, Ostinato } from './synth.js';
 import * as util from './util';
-import phrasesJSON from '../phrases/phrases';
 
 Vue.use(Vuex);
 
@@ -32,6 +32,7 @@ export default new Vuex.Store({
       playButtonPressed: false,
       endPhraseTime: 0,
       nextTime: 0,
+      octave: 0,
       synthNode: null,
     },
     currentPhraseIndex: 0,
@@ -69,6 +70,16 @@ export default new Vuex.Store({
     playButtonReleased(state) {
       state.playButtonPressed = false;
     },
+    nextPhrase(state) {
+      if (state.currentPhraseIndex < state.phrases.length) {
+        state.currentPhraseIndex += 1;
+      }
+    },
+    previousPhrase(state) {
+      if (state.currentPhraseIndex > 0) {
+        state.currentPhraseIndex -= 1;
+      }
+    },
   },
 
   actions: {
@@ -103,8 +114,10 @@ export default new Vuex.Store({
             instrument.nextTime,
             instrument.synthNode
           );
+          console.debug(`end time: ${instrument.endPhraseTime}`);
         }
         instrument.nextTime += secondsPerQuarterNote / 2.0;
+        console.debug(`next pulse: ${instrument.nextTime}`);
       }
     },
   },
