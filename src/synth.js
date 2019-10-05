@@ -25,7 +25,7 @@ export class EnvelopeAD {
 }
 
 export class VCA {
-  constructor(ctx, param, attack = 0.0, decay = 0.1, sustain = 0.25, release = 0.5) {
+  constructor(ctx, param, attack = 0.001, decay = 0.1, sustain = 0.25, release = 0.5) {
     this.ctx = ctx;
     this.param = param;
     this.attack = attack;
@@ -87,7 +87,7 @@ export class Ostinato {
 
     this.gain = ctx.createGain();
     this.gain.gain.setValueAtTime(0.0, this.ctx.currentTime);
-    this.vca = new VCA(this.ctx, this.gain.gain, 0, 0.1, 0, 0.1);
+    this.vca = new VCA(this.ctx, this.gain.gain, 0.001, 0.1, 0, 0.1);
 
     this.osc.connect(this.gain);
     this.gain.connect(ctx.destination);
@@ -96,5 +96,17 @@ export class Ostinato {
 
   playNoteAt(time) {
     this.vca.triggerAt(time, 0.1, 0.85);
+  }
+}
+
+export class MultiVoice {
+  constructor(ctx, voiceClass, numberOfVoices = 3) {
+    this.pool = new Array(numberOfVoices).fill(new voiceClass(ctx));
+    this.poolIndex = 0;
+  }
+
+  playNoteAt(time, note) {
+    this.pool[this.poolIndex].playNoteAt(time, note);
+    this.poolIndex = (this.poolIndex + 1) % this.pool.length;
   }
 }
