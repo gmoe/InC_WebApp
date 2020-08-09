@@ -2,7 +2,7 @@
   "duration": "2n",
   "notes": [
     {
-      "duration": "32n",
+      "duration": 0.025,
       "midi": 60,
       "pitch": "C4",
       "time": 0,

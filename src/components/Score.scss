@@ -1,0 +1,11 @@
+.score {
+  padding: 10px;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 4px;
+
+  .progress-bar {
+    height: 10px;
+    border-top: 1px solid gray;
+  }
+}

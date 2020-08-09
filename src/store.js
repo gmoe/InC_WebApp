@@ -35,7 +35,7 @@ export default new Vuex.Store({
       octave: 0,
       synthNode: null,
     },
-    currentPhraseIndex: 0,
+    currentPhraseIndex: 2,
     phrases: phrasesJSON.map(({ duration, notes }) => ({
       duration: util.parseTimeString(duration, DEFAULT_BPM),
       notes: notes.map((note) => ({
@@ -102,13 +102,13 @@ export default new Vuex.Store({
         secondsPerQuarterNote,
       } = state;
 
-      while (ostinato.nextTime < audioCtx.currentTime + secondsPerQuarterNote) {
+      while (ostinato.nextTime < audioCtx.currentTime + (secondsPerQuarterNote / 2.0)) {
         if (ostinato.on) ostinato.synthNode.playNoteAt(ostinato.nextTime);
-        state.ostinato.nextTime += secondsPerQuarterNote;
+        state.ostinato.nextTime += secondsPerQuarterNote / 2.0;
       }
 
-      while (instrument.nextTime < audioCtx.currentTime + 0.02) {
-        if (playButtonPressed && audioCtx.currentTime >= instrument.endPhraseTime) {
+      while (instrument.nextTime <= audioCtx.currentTime) {
+        if (playButtonPressed && (audioCtx.currentTime >= instrument.endPhraseTime)) {
           instrument.endPhraseTime = playPhrase(
             phrases[currentPhraseIndex],
             instrument.nextTime,

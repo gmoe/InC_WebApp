@@ -1,4 +1,6 @@
 import phraseOne from '../phrases/svgs/1.svg';
+import styles from './Score.scss';
+
 const cache = {};
 
 function importAll (r) {
@@ -6,8 +8,6 @@ function importAll (r) {
 }
 
 const images = importAll(require.context('../phrases/svgs', false, /\.svg$/, 'eager'));
-
-console.log(cache);
 
 export default {
   name: 'Score',
@@ -34,8 +34,11 @@ export default {
   },
   render() {
     return (
-      <div style={{ background: 'white' }}>
+      <div class={styles.score}>
         <img src={this.$data.image} />
+        <div class={styles.progressBar}>
+          <div />
+        </div>
       </div>
     );
   },
